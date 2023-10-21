@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PFinances - Dashboard</title>
+		<link href="./css/main.css" rel="stylesheet" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+		<!-- Redireciona para o 'index.html' se não existir token no localstorage -->
+		<script>
+			if(!localStorage.getItem('Authorization')) {
+				window.location.replace('index.html')
+			}
+		</script>
+
+	</head>
+	<body>
+		<main>
+			<div class="content vertical">
+				<div id="resumo">
+					<button class="btn logout" onClick="openPopup()">+</button>
+					<div id="resumo2"></div>
+					<button class="btn" onClick="localStorage.removeItem('Authorization');window.location.replace('index.html')">Sair</button>
+				</div>
+				<table class="table table-striped" id="table">
+					<thead id="thead"></thead>
+					<tbody class="table-striped" id="tbody"></tbody>
+				</table>
+
+					<div id="popup" class="popup">
+						<h3>Add/Modify Transaction</h3>
+						<form>
+							<input type="hidden" name="id" id="id">
+							<input type="text" id="description" placeholder="Description" />
+							<br />
+							<input type="number" id="value" placeholder="Value" />
+							<br />
+							<label for="type">Type:</label>
+							<br />
+							<select id="type">
+								<option value="E">Expenses</option>
+								<option value="I">Income</option>
+							</select>
+							<br />
+							<!-- <label for="date">Date:</label> -->
+							<input type="date" id="date" />
+							<br />
+							<label for="category">Category:</label>
+							<br />
+							<select id="category">
+								<option value="1">🏠 Housing</option>
+								<option value="2">🚗 Transportation</option>
+								<option value="3">🍔 Food</option>
+								<option value="4">🎬 Entertainment</option>
+								<option value="5">🏥 Health</option>
+								<option value="6">👕 Clothing</option>
+								<option value="7">🎓Education</option>
+								<option value="8">💸 Debt</option>
+								<option value="9">📝 Taxes</option>
+								<option value="10">✈️ Travel</option>
+								<option value="11">📦 Others</option>
+								<option value="12">💰 Personal Income</option>
+								<option value="13">🏢 Business Income</option>
+								<option value="14">💼 Investment Income</option>
+								<option value="15">📈 Passive Income</option>
+								<option value="16">🎲 Gambling/Lotter</option>Winnings",
+								<option value="17">❓ Other</option>
+							</select>
+							<br />
+							<div>
+								<button type="button" class="btn" onclick="CreateTransaction()">Salvar</button>
+								<button type="button" class="btn" onclick="closePopup()">Cancelar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+	<script src="./js/gets.js"></script>
+	<script src="./js/dashboard.js"></script>
+</html>

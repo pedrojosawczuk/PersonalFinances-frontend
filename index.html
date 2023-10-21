@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PFinances - Login</title>
+        <script src="./js/index.js"></script>
+        <link href="./css/main.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Redireciona para o 'todo.html' se existir token no localstorage -->
+    <script>
+        if(localStorage.getItem('Authorization')) {
+            window.location.replace('dashboard.html')
+        }
+    </script>
+    
+    </head>
+    <body>
+        <main>
+            <div class="content">
+                <div class="forms">
+                    <!--<form class="forms">-->
+                    <div class="titles">
+                        <h1>Welcome back</h1>
+                        <h2>Welcome back! Please enter your details.</h2>
+                    </div>
+                    
+                    <div class="fields">
+                        <input class="input" type="email" id="email" placeholder="Email" >
+                        <input class="input" type="password" id="password" placeholder="Password">
+                    </div>
+                    <div id="alert" role="alert">
+                    </div>
+                    
+                    <input type="submit" class="button" value="Login" onclick="Login()" >
+                    
+                    <p>Don't have an account? <a href="./signup.html">Sign up for free</a></p>
+                </div>
+                <div class="container">
+                    <img src="./images/v1_205.jpg" alt="">
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
